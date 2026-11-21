@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSBM Speakers' Club — 2026/2027 Top Board Membership Card</title>
+
+  <style>
+    :root {
+      --card-bg-start: #0e131b;
+      --card-bg-mid: #17202d;
+      --card-bg-end: #090d13;
+      --foil-dark: #9c7822;
+      --foil-mid: #d6ae48;
+      --foil-light: #f3d57a;
+      --foil-sheen: #fff3c9;
+      --border-glow: rgba(214, 174, 72, 0.32);
+      --mx: 50%;
+      --my: 50%;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(circle at 50% 15%, #16202e 0%, #090d14 68%, #05070b 100%);
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .font-display {
+      font-family: "Cinzel", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    }
+
+    /* Bright, High-Contrast Metallic Gold Foil Typography */
+    .gold-foil-text {
+      background: linear-gradient(
+        115deg,
+        var(--foil-mid) 0%,
+        var(--foil-light) 22%,
+        var(--foil-sheen) 48%,
+        var(--foil-light) 76%,
+        var(--foil-mid) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--foil-light);
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
+    }
+
+    .tier-accent-text {
+      color: var(--foil-light);
+    }
+
+    .tier-accent-pill {
+      border-color: var(--border-glow);
+      background: rgba(10, 16, 28, 0.65);
+    }
+
+    /* Brushed Micro-Texture Overlay */
+    .metal-texture {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.24;
+      background-image:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.03) 0px,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 3px
+        ),
+        radial-gradient(circle at 25% 20%, rgba(255, 248, 220, 0.09), transparent 60%);
+    }
+
+    /* Continuous Ambient Metallic Sweep + Cursor Specular Foil Glint */
+    @keyframes foilSweep {
+      0% {
+        transform: translateX(-120%) skewX(-22deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.55;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      80% {
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(220%) skewX(-22deg);
+        opacity: 0;
+      }
+    }
+
+    .ambient-sheen {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 45%;
+      z-index: 5;
+      pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 246, 210, 0.08) 45%,
+        rgba(255, 250, 230, 0.16) 50%,
+        rgba(255, 246, 210, 0.08) 55%,
+        transparent 100%
+      );
+      animation: foilSweep 6.5s ease-in-out infinite;
+    }
+
+    .foil-glint {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      pointer-events: none;
+      background: radial-gradient(
+        circle 280px at var(--mx) var(--my),
+        rgba(255, 248, 214, 0.18) 0%,
+        rgba(255, 244, 204, 0.06) 45%,
+        transparent 75%
+      );
+      mix-blend-mode: screen;
+      transition: opacity 0.25s ease;
+    }
+
+    /* Holographic Chip on Back */
+    .holo-chip {
+      background: linear-gradient(135deg, #d6a843, #67e8f9, #f7e6b2, #a78bfa, #c9a23f);
+    }
+
+    /* Top Header & Controls */
+    .app-header {
+      width: 100%;
+      max-width: 580px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .app-title {
+      margin: 0;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #f1f5f9;
+    }
+
+    .selector-bar {
+      width: 100%;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid rgba(71, 85, 105, 0.65);
+      padding: 10px;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      padding: 8px 13px;
+      border-radius: 12px;
+      background: #1e293b;
+      border: 1px solid rgba(100, 116, 139, 0.55);
+      color: #e2e8f0;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-btn:hover {
+      background: #334155;
+      border-color: rgba(243, 213, 122, 0.45);
+    }
+
+    .member-select {
+      flex: 1;
+      min-width: 210px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: rgba(2, 6, 23, 0.85);
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      color: #fef3c7;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .member-select:focus {
+      border-color: #fbbf24;
+    }
+
+    select option,
+    select optgroup {
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+
+    /* 3D Perspective Stage */
+    .stage {
+      perspective: 1600px;
+      width: 100%;
+      max-width: 672px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .card-scale-frame {
+      width: 640px;
+      height: 403px;
+      transform-origin: center center;
+      flex-shrink: 0;
+    }
+
+    .card-print-slot {
+      width: 640px;
+      height: 403px;
+      position: relative;
+    }
+
+    .card-wrapper {
+      width: 640px;
+      height: 403px;
+      position: relative;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+    }
+
+    .card-wrapper.is-tilting {
+      transition: transform 0.12s ease-out;
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      width: 640px;
+      height: 403px;
+      border-radius: 18px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+      background: linear-gradient(
+        145deg,
+        var(--card-bg-start) 0%,
+        var(--card-bg-mid) 48%,
+        var(--card-bg-end) 100%
+      );
+      box-shadow:
+        0 28px 60px -15px rgba(0, 0, 0, 0.8),
+        0 0 0 1px var(--border-glow),
+        inset 0 1px 1px rgba(255, 255, 255, 0.14);
+      transition: background 0.55s ease, box-shadow 0.55s ease;
+    }
+
+    .card-front {
+      transform: rotateY(0deg);
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+    }
+
+    .card-svg-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Front Face Layout */
+    .card-front-content {
+      position: relative;
+      z-index: 4;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 26px 32px;
+    }
+
+    .card-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      padding-left: 4px;
+    }
+
+    .crest-box {
+      width: 68px;
+      height: 68px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.65));
+    }
+
+    .card-header-titles {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .club-heading {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0.08em;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .club-subheading {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      margin: 4px 0 0 0;
+      color: #f1f5f9;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .card-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      margin: auto 0;
+      gap: 7px;
+    }
+
+    .member-name {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0.07em;
+      max-width: 92%;
+      text-align: center;
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    .member-role {
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      max-width: 92%;
+      margin: 0;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .year-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 16px;
+      line-height: 1;
+      border-radius: 9999px;
+      border-width: 1px;
+      border-style: solid;
+      margin-top: 3px;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: #f1f5f9;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .card-footer {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .card-footer-ornament {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: left;
+      padding-left: 44px;
+    }
+
+    .footer-motto-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-dash {
+      display: inline-block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--foil-light);
+      opacity: 0.85;
+    }
+
+    .footer-motto {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .footer-univ {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: #e2e8f0;
+      text-transform: uppercase;
+    }
+
+    .exco-seal {
+      width: 66px;
+      height: 66px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.65));
+    }
+
+    /* Back Face Layout */
+    .card-back-content {
+      position: relative;
+      z-index: 4;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px 0 18px 0;
+    }
+
+    .mag-stripe {
+      width: 100%;
+      height: 42px;
+      padding: 0 36px;
+      background: linear-gradient(90deg, #09090b 0%, #27272a 50%, #09090b 100%);
+      border-top: 1px solid rgba(243, 213, 122, 0.35);
+      border-bottom: 1px solid rgba(243, 213, 122, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mag-left {
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .mag-right {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: #e2e8f0;
+      text-transform: uppercase;
+    }
+
+    .back-middle {
+      padding: 0 36px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: auto 0;
+    }
+
+    .back-info-col {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .back-heading {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .back-body-copy {
+      font-size: 11.5px;
+      line-height: 1.55;
+      margin: 6px 0 0 0;
+      color: #f1f5f9;
+    }
+
+    .back-body-copy strong.white-bold {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .sig-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .sig-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sig-box {
+      height: 34px;
+      padding: 0 12px;
+      border-radius: 5px;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border: 1px solid rgba(243, 213, 122, 0.7);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .sig-x {
+      font-size: 12px;
+      color: #64748b;
+      opacity: 0.55;
+    }
+
+    .sig-caption {
+      font-size: 8.5px;
+      letter-spacing: 0.16em;
+      margin: 5px 0 0 0;
+      color: #cbd5e1;
+      text-transform: uppercase;
+    }
+
+    .holo-wrap {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+    }
+
+    .holo-inner {
+      width: 40px;
+      height: 40px;
+      background: #0f172a;
+      border-radius: 4.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .holo-text {
+      font-size: 9.5px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.08em;
+    }
+
+    .back-logo-col {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-logo-box {
+      width: 102px;
+      height: 102px;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.65));
+    }
+
+    .back-footer {
+      padding: 8px 36px 0 36px;
+      font-size: 9.5px;
+      border-top: 1px solid rgba(243, 213, 122, 0.24);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .back-footer-left {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .back-footer-right {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    /* Bottom Action Buttons */
+    .action-bar {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 16px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: none;
+      background: #fbbf24;
+      color: #090d16;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      box-shadow: 0 10px 22px -6px rgba(251, 191, 36, 0.35);
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: #fcd34d;
+    }
+
+    .btn-emerald {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(6, 78, 59, 0.78);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #a7f3d0;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s ease;
+    }
+
+    .btn-emerald:hover {
+      background: rgba(6, 95, 70, 0.88);
+    }
+
+    .btn-slate {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(71, 85, 105, 0.75);
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s ease;
+    }
+
+    .btn-slate:hover {
+      background: #1e293b;
+    }
+
+    .status-toast {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 8px 18px;
+      border-radius: 9999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      color: #fef3c7;
+      font-size: 12px;
+      font-weight: 500;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    /* ==========================================================================
+       PRINT MODE: Exact Proportional CR80 (3.375in x 2.125in = 324px x 204px)
+       Scales the full 640px x 403px front & back faces by 0.50625 cleanly
+       ========================================================================== */
+    @media print {
+      @page {
+        size: auto;
+        margin: 12mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        min-height: auto !important;
+        display: block !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .stage {
+        max-width: none !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 10mm 0 !important;
+        perspective: none !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+      .card-scale-frame {
+        width: auto !important;
+        height: auto !important;
+        transform: none !important;
+      }
+      .card-wrapper {
+        width: auto !important;
+        height: auto !important;
+        transform: none !important;
+        transform-style: flat !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10mm !important;
+      }
+      .card-face {
+        position: relative !important;
+        inset: auto !important;
+        width: 640px !important;
+        height: 403px !important;
+        zoom: 0.50625 !important;
+        transform: none !important;
+        backface-visibility: visible !important;
+        box-shadow: none !important;
+        border: 1px solid #997a1d !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      /* Ensure metallic foil text prints crisply in solid gold without WebKit transparent-clip dropout */
+      .gold-foil-text {
+        background: none !important;
+        -webkit-background-clip: border-box !important;
+        background-clip: border-box !important;
+        -webkit-text-fill-color: var(--foil-light) !important;
+        color: var(--foil-light) !important;
+        filter: none !important;
+      }
+      .foil-glint,
+      .ambient-sheen {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Streamlined Member Selector -->
+  <header class="app-header no-print">
+    <h1 class="app-title font-display">
+      NSBM SPEAKERS’ CLUB EXECUTIVE CREDENTIAL
+    </h1>
+
+    <div class="selector-bar">
+      <button
+        id="prevMemberBtn"
+        type="button"
+        title="Previous Board Member"
+        class="nav-btn"
+      >
+        &lsaquo;
+      </button>
+
+      <select
+        id="memberSelect"
+        aria-label="Select 2026/2027 Top Board Member"
+        class="member-select"
+      ></select>
+
+      <button
+        id="nextMemberBtn"
+        type="button"
+        title="Next Board Member"
+        class="nav-btn"
+      >
+        &rsaquo;
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Card Stage -->
+  <main class="stage" id="cardStage">
+    <div class="card-scale-frame" id="cardScaleFrame">
+      <div class="card-wrapper" id="cardWrapper" role="button" tabindex="0" aria-label="Flip NSBM Speakers' Club Membership Card">
+
+        <!-- ==================== FRONT OF CARD ==================== -->
+        <section class="card-face card-front">
+          <div class="metal-texture"></div>
+          <div class="ambient-sheen"></div>
+          <div class="foil-glint"></div>
+
+          <!-- Guilloché Waves, Diagonal Gold Ribbons, Globe Wireframe & Double Frame -->
+          <svg id="frontDecorSvg" class="card-svg-bg" viewBox="0 0 856 540" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop id="goldStop0" offset="0%" stop-color="#9c7822" />
+                <stop id="goldStop1" offset="32%" stop-color="#fff3c9" />
+                <stop id="goldStop2" offset="65%" stop-color="#d6ae48" />
+                <stop id="goldStop3" offset="100%" stop-color="#9c7822" />
+              </linearGradient>
+              <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop id="ribStop0" offset="0%" stop-color="#9e7524" />
+                <stop id="ribStop1" offset="50%" stop-color="#fff3c9" />
+                <stop id="ribStop2" offset="100%" stop-color="#9c7822" />
+              </linearGradient>
+            </defs>
+
+            <!-- Guilloché Security Wave Lines -->
+            <g fill="none" stroke-width="1.3">
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M -20 395 Q 190 315, 420 390 T 880 350" />
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M -20 407 Q 190 327, 420 402 T 880 362" />
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M -20 419 Q 190 339, 420 414 T 880 374" />
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M -20 431 Q 190 351, 420 426 T 880 386" />
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M -20 443 Q 190 363, 420 438 T 880 398" />
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M -20 455 Q 190 375, 420 450 T 880 410" />
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M 380 45 Q 580 125, 875 65" />
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M 380 57 Q 580 137, 875 77" />
+              <path class="guilloche-wave" stroke="rgba(214, 174, 72, 0.18)" d="M 380 69 Q 580 149, 875 89" />
+            </g>
+
+            <!-- Right-Edge Subtle Globe Wireframe Watermark -->
+            <g transform="translate(838, 270)" fill="none" stroke="url(#goldGrad)" stroke-width="1.9" opacity="0.34">
+              <circle cx="0" cy="0" r="108" />
+              <ellipse cx="0" cy="0" rx="64" ry="108" />
+              <ellipse cx="0" cy="0" rx="26" ry="108" />
+              <line x1="-108" y1="0" x2="108" y2="0" />
+              <path d="M -94 -52 Q 0 -32, 94 -52" />
+              <path d="M -94 52 Q 0 32, 94 52" />
+            </g>
+
+            <!-- Double Metallic Border Frame -->
+            <rect x="16" y="16" width="824" height="508" rx="13" fill="none" stroke="url(#goldGrad)" stroke-width="2.4" stroke-opacity="0.9" />
+            <rect x="24" y="24" width="808" height="492" rx="9" fill="none" stroke="url(#goldGrad)" stroke-width="1.1" stroke-opacity="0.5" />
+
+            <!-- Top-Right Corner Metallic Diagonal Accent -->
+            <polygon points="725,0 762,0 856,94 856,131" fill="url(#ribbonGrad)" opacity="0.95" />
+            <polygon points="776,0 792,0 856,64 856,80" fill="url(#ribbonGrad)" opacity="0.48" />
+
+            <!-- Bottom-Left Corner Metallic Diagonal Accent -->
+            <polygon points="0,398 0,435 105,540 142,540" fill="url(#ribbonGrad)" opacity="0.95" />
+            <polygon points="0,450 0,466 74,540 90,540" fill="url(#ribbonGrad)" opacity="0.48" />
+          </svg>
+
+          <!-- Card Front Content Layer -->
+          <div class="card-front-content">
+
+            <!-- Top Row: Official Crest + Club Title -->
+            <div class="card-header">
+              <div class="crest-box">
+                <svg id="frontCrestSvg" viewBox="0 0 220 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="NSBM Speakers' Club Emblem">
+                  <defs>
+                    <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop id="crestStop0" offset="0%" stop-color="#9c7822" />
+                      <stop id="crestStop1" offset="30%" stop-color="#fff3c9" />
+                      <stop id="crestStop2" offset="60%" stop-color="#d6ae48" />
+                      <stop id="crestStop3" offset="100%" stop-color="#9c7822" />
+                    </linearGradient>
+                    <path id="topArc" d="M 32,110 A 78,78 0 1,1 188,110" />
+                  </defs>
+
+                  <circle id="crestOuterBg" cx="110" cy="110" r="106" fill="#0e131b" stroke="url(#crestGold)" stroke-width="3.5" />
+                  <circle cx="110" cy="110" r="99" fill="none" stroke="url(#crestGold)" stroke-width="1.5" />
+                  <circle id="crestInnerBg" cx="110" cy="110" r="64" fill="#141c28" stroke="url(#crestGold)" stroke-width="3" />
+
+                  <g fill="none" stroke="#64748b" stroke-width="2.5" opacity="0.88">
+                    <circle cx="110" cy="110" r="54" />
+                    <ellipse cx="110" cy="110" rx="32" ry="54" />
+                    <ellipse cx="110" cy="110" rx="13" ry="54" />
+                    <line x1="56" y1="110" x2="164" y2="110" />
+                    <path d="M 63 84 Q 110 96, 157 84" />
+                    <path d="M 63 136 Q 110 124, 157 136" />
+                  </g>
+
+                  <text fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="14.5" letter-spacing="1.7">
+                    <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+                      NSBM SPEAKERS’ CLUB
+                    </textPath>
+                  </text>
+
+                  <circle cx="29" cy="112" r="3.5" fill="#FFFFFF" />
+                  <circle cx="191" cy="112" r="3.5" fill="#FFFFFF" />
+
+                  <g fill="url(#crestGold)">
+                    <ellipse cx="30" cy="130" rx="3.5" ry="8" transform="rotate(-20 30 130)" />
+                    <ellipse cx="36" cy="147" rx="3.5" ry="8" transform="rotate(-35 36 147)" />
+                    <ellipse cx="46" cy="162" rx="3.5" ry="8" transform="rotate(-50 46 162)" />
+                    <ellipse cx="60" cy="175" rx="3.5" ry="8" transform="rotate(-62 60 175)" />
+                    <ellipse cx="76" cy="185" rx="3.5" ry="8" transform="rotate(-74 76 185)" />
+                    <ellipse cx="93" cy="191" rx="3.5" ry="8" transform="rotate(-84 93 191)" />
+                    <circle cx="110" cy="193" r="4.5" />
+                    <ellipse cx="190" cy="130" rx="3.5" ry="8" transform="rotate(20 190 130)" />
+                    <ellipse cx="184" cy="147" rx="3.5" ry="8" transform="rotate(35 184 147)" />
+                    <ellipse cx="174" cy="162" rx="3.5" ry="8" transform="rotate(50 174 162)" />
+                    <ellipse cx="160" cy="175" rx="3.5" ry="8" transform="rotate(62 160 175)" />
+                    <ellipse cx="144" cy="185" rx="3.5" ry="8" transform="rotate(74 144 185)" />
+                    <ellipse cx="127" cy="191" rx="3.5" ry="8" transform="rotate(84 127 191)" />
+                  </g>
+
+                  <g transform="translate(112, 112) rotate(32)">
+                    <rect x="-8" y="-34" width="16" height="72" rx="3" fill="#1e293b" stroke="#ffffff" stroke-width="2" />
+                    <line x1="-5" y1="-16" x2="-5" y2="26" stroke="#94a3b8" stroke-width="1.5" />
+                    <line x1="0" y1="-16" x2="0" y2="26" stroke="#94a3b8" stroke-width="1.5" />
+                    <line x1="5" y1="-16" x2="5" y2="26" stroke="#94a3b8" stroke-width="1.5" />
+                    <circle cx="0" cy="-42" r="16" fill="#e2e8f0" stroke="#0f172a" stroke-width="2" />
+                    <path d="M -15 -39 L 15 -39 M -14 -45 L 14 -45 M -11 -51 L 11 -51" stroke="#334155" stroke-width="1.5" />
+                    <rect x="-15" y="-37" width="30" height="4" fill="#0f172a" />
+
+                    <g fill="#ffffff" stroke="#0f172a" stroke-width="2.2" stroke-linejoin="round">
+                      <path d="M -18 -8 C -25 -4, -26 22, -16 28 L 8 28 C 14 28, 16 22, 12 18 L -10 18 Z" />
+                      <rect x="-18" y="-12" width="28" height="9" rx="4.5" />
+                      <rect x="-20" y="-3" width="30" height="9" rx="4.5" />
+                      <rect x="-19" y="6" width="28" height="9" rx="4.5" />
+                      <rect x="-16" y="15" width="24" height="8.5" rx="4" />
+                      <path d="M 8 -14 C 19 -14, 22 -2, 14 5 L 7 8 C 4 4, 5 -4, 8 -14 Z" />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="card-header-titles">
+                <h2 class="club-heading font-display gold-foil-text">
+                  NSBM SPEAKERS’ CLUB
+                </h2>
+                <p class="club-subheading">
+                  MEMBERSHIP CARD &bull; 2026/2027
+                </p>
+              </div>
+            </div>
+
+            <!-- Centerpiece: Member Name, Role & Term -->
+            <div class="card-center">
+              <h3 id="cardFrontName" class="font-display gold-foil-text member-name">
+                NISHITH SIRIBADDANA
+              </h3>
+
+              <p id="cardFrontRole" class="tier-accent-text member-role">
+                VICE PRESIDENT – EDUCATION
+              </p>
+
+              <div class="tier-accent-pill year-pill">
+                <span id="cardFrontTierLabel">
+                  EXECUTIVE COMMITTEE &bull; 2026 / 2027
+                </span>
+              </div>
+            </div>
+
+            <!-- Bottom Row: Club Motto & Term Anchor (Left) + Scalloped Seal (Right) -->
+            <div class="card-footer">
+              <div class="card-footer-ornament">
+                <div class="footer-motto-row">
+                  <span class="footer-dash"></span>
+                  <span class="footer-motto font-display tier-accent-text">
+                    TOP BOARD CREDENTIAL
+                  </span>
+                </div>
+                <span class="footer-univ">
+                  NSBM GREEN UNIVERSITY &bull; TERM 2026 / 2027
+                </span>
+              </div>
+
+              <!-- Bottom-Right Scalloped Gold Seal (66px x 66px) -->
+              <div class="exco-seal">
+                <svg id="frontSealSvg" viewBox="0 0 120 120" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Executive Committee Gold Seal">
+                  <defs>
+                    <linearGradient id="sealGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop id="sealStop0" offset="0%" stop-color="#fff3c9" />
+                      <stop id="sealStop1" offset="45%" stop-color="#d6ae48" />
+                      <stop id="sealStop2" offset="100%" stop-color="#9c7822" />
+                    </linearGradient>
+                    <path id="sealTopArc" d="M 24,60 A 36,36 0 1,1 96,60" />
+                    <path id="sealBotArc" d="M 22,62 A 38,38 0 0,0 98,62" />
+                  </defs>
+
+                  <polygon
+                    fill="url(#sealGold)"
+                    points="60,4 69,11 81,8 87,19 99,21 101,33 112,39 109,51 116,60 109,69 112,81 101,87 99,99 87,101 81,112 69,109 60,116 51,109 39,112 33,101 21,99 19,87 8,81 11,69 4,60 11,51 8,39 19,33 21,21 33,19 39,8 51,11"
+                  />
+                  <circle id="sealInnerBg" cx="60" cy="60" r="44" fill="#0e131b" stroke="url(#sealGold)" stroke-width="2" />
+                  <circle cx="60" cy="60" r="40" fill="none" stroke="url(#sealGold)" stroke-width="0.9" stroke-dasharray="2 2" />
+
+                  <text id="sealTopText" fill="#fff3c9" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="8.2" letter-spacing="1.2">
+                    <textPath href="#sealTopArc" startOffset="50%" text-anchor="middle">EXCO</textPath>
+                  </text>
+                  <text id="sealBotText" fill="#fff3c9" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="7.8" letter-spacing="1.1">
+                    <textPath href="#sealBotArc" startOffset="50%" text-anchor="middle">26 &bull; 27</textPath>
+                  </text>
+
+                  <text id="sealCenterText" x="60" y="65" text-anchor="middle" fill="url(#sealGold)" font-family="Georgia, serif" font-weight="800" font-size="15" letter-spacing="1">
+                    EXCO
+                  </text>
+                  <circle cx="26" cy="60" r="2" fill="#fff3c9" />
+                  <circle cx="94" cy="60" r="2" fill="#fff3c9" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== BACK OF CARD ==================== -->
+        <section class="card-face card-back">
+          <div class="metal-texture"></div>
+          <div class="ambient-sheen"></div>
+          <div class="foil-glint"></div>
+
+          <!-- Subtle Double Back Border -->
+          <svg class="card-svg-bg" viewBox="0 0 856 540" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="18" y="18" width="820" height="504" rx="12" fill="none" stroke="url(#goldGrad)" stroke-width="2.2" stroke-opacity="0.8" />
+            <rect x="26" y="26" width="804" height="488" rx="8" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.4" />
+          </svg>
+
+          <div class="card-back-content">
+            <!-- Magnetic Stripe -->
+            <div class="mag-stripe">
+              <span class="mag-left font-display tier-accent-text">
+                NSBM Speakers’ Club
+              </span>
+              <span class="mag-right font-display">
+                2026 / 2027 Term
+              </span>
+            </div>
+
+            <!-- Middle Content: Club Certification + Physical Signature Strip + Crest Emblem -->
+            <div class="back-middle">
+              <div class="back-info-col">
+                <div>
+                  <p id="cardBackHeading" class="back-heading tier-accent-text">
+                    Official Top Board Credential
+                  </p>
+                  <p class="back-body-copy">
+                    This card certifies that <strong id="cardBackName" class="white-bold">Nishith Siribaddana</strong> (<span id="cardBackRole" class="tier-accent-text">Vice President – Education</span>) is an officially appointed member of the <strong class="white-bold">NSBM Speakers’ Club Top Board</strong> for the academic term <strong class="tier-accent-text">2026/2027</strong>.
+                  </p>
+                </div>
+
+                <!-- Blank Physical Signature Strip & Holographic Foil Seal -->
+                <div class="sig-row">
+                  <div class="sig-col">
+                    <div class="sig-box">
+                      <span class="sig-x font-display">&times;</span>
+                    </div>
+                    <p class="sig-caption">
+                      Authorized Bearer Signature (Sign in Ink)
+                    </p>
+                  </div>
+
+                  <!-- Holographic Security Foil Badge -->
+                  <div class="holo-wrap holo-chip">
+                    <div class="holo-inner">
+                      <span class="holo-text font-display tier-accent-text">NSC</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right-Side Official Club Crest Logo -->
+              <div class="back-logo-col">
+                <div class="back-logo-box">
+                  <svg viewBox="0 0 220 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="NSBM Speakers' Club Logo">
+                    <defs>
+                      <linearGradient id="backCrestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#9c7822" />
+                        <stop offset="30%" stop-color="#fff3c9" />
+                        <stop offset="60%" stop-color="#d6ae48" />
+                        <stop offset="100%" stop-color="#9c7822" />
+                      </linearGradient>
+                      <path id="backTopArc" d="M 32,110 A 78,78 0 1,1 188,110" />
+                    </defs>
+
+                    <circle id="backCrestOuterBg" cx="110" cy="110" r="106" fill="#0e131b" stroke="url(#backCrestGold)" stroke-width="3.5" />
+                    <circle cx="110" cy="110" r="99" fill="none" stroke="url(#backCrestGold)" stroke-width="1.5" />
+                    <circle id="backCrestInnerBg" cx="110" cy="110" r="64" fill="#141c28" stroke="url(#backCrestGold)" stroke-width="3" />
+
+                    <g fill="none" stroke="#64748b" stroke-width="2.5" opacity="0.88">
+                      <circle cx="110" cy="110" r="54" />
+                      <ellipse cx="110" cy="110" rx="32" ry="54" />
+                      <ellipse cx="110" cy="110" rx="13" ry="54" />
+                      <line x1="56" y1="110" x2="164" y2="110" />
+                      <path d="M 63 84 Q 110 96, 157 84" />
+                      <path d="M 63 136 Q 110 124, 157 136" />
+                    </g>
+
+                    <text fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="14.5" letter-spacing="1.7">
+                      <textPath href="#backTopArc" startOffset="50%" text-anchor="middle">
+                        NSBM SPEAKERS’ CLUB
+                      </textPath>
+                    </text>
+
+                    <circle cx="29" cy="112" r="3.5" fill="#FFFFFF" />
+                    <circle cx="191" cy="112" r="3.5" fill="#FFFFFF" />
+
+                    <g fill="url(#backCrestGold)">
+                      <ellipse cx="30" cy="130" rx="3.5" ry="8" transform="rotate(-20 30 130)" />
+                      <ellipse cx="36" cy="147" rx="3.5" ry="8" transform="rotate(-35 36 147)" />
+                      <ellipse cx="46" cy="162" rx="3.5" ry="8" transform="rotate(-50 46 162)" />
+                      <ellipse cx="60" cy="175" rx="3.5" ry="8" transform="rotate(-62 60 175)" />
+                      <ellipse cx="76" cy="185" rx="3.5" ry="8" transform="rotate(-74 76 185)" />
+                      <ellipse cx="93" cy="191" rx="3.5" ry="8" transform="rotate(-84 93 191)" />
+                      <circle cx="110" cy="193" r="4.5" />
+                      <ellipse cx="190" cy="130" rx="3.5" ry="8" transform="rotate(20 190 130)" />
+                      <ellipse cx="184" cy="147" rx="3.5" ry="8" transform="rotate(35 184 147)" />
+                      <ellipse cx="174" cy="162" rx="3.5" ry="8" transform="rotate(50 174 162)" />
+                      <ellipse cx="160" cy="175" rx="3.5" ry="8" transform="rotate(62 160 175)" />
+                      <ellipse cx="144" cy="185" rx="3.5" ry="8" transform="rotate(74 144 185)" />
+                      <ellipse cx="127" cy="191" rx="3.5" ry="8" transform="rotate(84 127 191)" />
+                    </g>
+
+                    <g transform="translate(112, 112) rotate(32)">
+                      <rect x="-8" y="-34" width="16" height="72" rx="3" fill="#1e293b" stroke="#ffffff" stroke-width="2" />
+                      <line x1="-5" y1="-16" x2="-5" y2="26" stroke="#94a3b8" stroke-width="1.5" />
+                      <line x1="0" y1="-16" x2="0" y2="26" stroke="#94a3b8" stroke-width="1.5" />
+                      <line x1="5" y1="-16" x2="5" y2="26" stroke="#94a3b8" stroke-width="1.5" />
+                      <circle cx="0" cy="-42" r="16" fill="#e2e8f0" stroke="#0f172a" stroke-width="2" />
+                      <path d="M -15 -39 L 15 -39 M -14 -45 L 14 -45 M -11 -51 L 11 -51" stroke="#334155" stroke-width="1.5" />
+                      <rect x="-15" y="-37" width="30" height="4" fill="#0f172a" />
+
+                      <g fill="#ffffff" stroke="#0f172a" stroke-width="2.2" stroke-linejoin="round">
+                        <path d="M -18 -8 C -25 -4, -26 22, -16 28 L 8 28 C 14 28, 16 22, 12 18 L -10 18 Z" />
+                        <rect x="-18" y="-12" width="28" height="9" rx="4.5" />
+                        <rect x="-20" y="-3" width="30" height="9" rx="4.5" />
+                        <rect x="-19" y="6" width="28" height="9" rx="4.5" />
+                        <rect x="-16" y="15" width="24" height="8.5" rx="4" />
+                        <path d="M 8 -14 C 19 -14, 22 -2, 14 5 L 7 8 C 4 4, 5 -4, 8 -14 Z" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Back Footer -->
+            <div class="back-footer">
+              <span class="back-footer-left gold-foil-text">
+                NSBM Speakers’ Club
+              </span>
+              <span class="back-footer-right">
+                NSBM Green University, Homagama
+              </span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Action Footer -->
+  <footer class="action-bar no-print">
+    <button id="flipBtn" type="button" class="btn-primary">
+      &#8635; Flip Card
+    </button>
+
+    <button id="downloadBtn" type="button" class="btn-emerald">
+      &#8595; Download PNG (Front)
+    </button>
+
+    <button id="printBtn" type="button" class="btn-slate">
+      &#128424; Print CR80 Card
+    </button>
+  </footer>
+
+  <!-- Toast Feedback -->
+  <div id="statusToast" role="status" aria-live="polite" class="status-toast no-print"></div>
+
+  <script>
+    (function () {
+      // Four Cohesive Low-Contrast Dark Luxury Palettes (Brightened Foil Stops)
+      const TIER_PALETTES = {
+        president: {
+          key: 'president',
+          label: 'President Edition',
+          pillLabel: 'EXECUTIVE COMMITTEE • 2026 / 2027',
+          bgStart: '#0c182e',
+          bgMid: '#16294a',
+          bgEnd: '#081020',
+          foilDark: '#b38728',
+          foilMid: '#e3b84d',
+          foilLight: '#f9dc82',
+          foilSheen: '#fff6d1',
+          waveStroke: 'rgba(243, 213, 122, 0.22)',
+          sealTop: 'EXCO',
+          sealBot: '26 • 27',
+          sealCenter: 'EXCO'
+        },
+        exco: {
+          key: 'exco',
+          label: 'Executive Committee',
+          pillLabel: 'EXECUTIVE COMMITTEE • 2026 / 2027',
+          bgStart: '#101620',
+          bgMid: '#1b2636',
+          bgEnd: '#0a0f17',
+          foilDark: '#9e7a22',
+          foilMid: '#d6ae48',
+          foilLight: '#f3d57a',
+          foilSheen: '#fff3c9',
+          waveStroke: 'rgba(214, 174, 72, 0.20)',
+          sealTop: 'EXCO',
+          sealBot: '26 • 27',
+          sealCenter: 'EXCO'
+        },
+        coordinators: {
+          key: 'coordinators',
+          label: 'Coordinators',
+          pillLabel: 'BOARD COORDINATOR • 2026 / 2027',
+          bgStart: '#0e1f1c',
+          bgMid: '#18302b',
+          bgEnd: '#091512',
+          foilDark: '#94732d',
+          foilMid: '#cca752',
+          foilLight: '#ebd088',
+          foilSheen: '#faf0cc',
+          waveStroke: 'rgba(204, 167, 82, 0.20)',
+          sealTop: 'BOARD',
+          sealBot: '26 • 27',
+          sealCenter: 'COORD'
+        },
+        members: {
+          key: 'members',
+          label: 'Executive Members',
+          pillLabel: 'EXECUTIVE MEMBER • 2026 / 2027',
+          bgStart: '#141728',
+          bgMid: '#20243c',
+          bgEnd: '#0d0f1b',
+          foilDark: '#8c8062',
+          foilMid: '#c7ba99',
+          foilLight: '#eae1c8',
+          foilSheen: '#faf6eb',
+          waveStroke: 'rgba(199, 186, 153, 0.20)',
+          sealTop: 'MEMBER',
+          sealBot: '26 • 27',
+          sealCenter: 'EXCO'
+        }
+      };
+
+      // Complete 25-Member 2026/2027 Top Board Roster
+      const TOP_BOARD_ROSTER = [
+        { id: 'NSC-2627-001', name: 'Dulakshana Fernando', role: 'President', tier: 'president' },
+        { id: 'NSC-2627-002', name: 'Nishith Siribaddana', role: 'Vice President – Education', tier: 'exco' },
+        { id: 'NSC-2627-003', name: 'Anjana Fernando', role: 'Vice President – Membership', tier: 'exco' },
+        { id: 'NSC-2627-004', name: 'Anjalina Michelle', role: 'Vice President – Public Relations & Marketing', tier: 'exco' },
+        { id: 'NSC-2627-005', name: 'Tharuki Hasanya', role: 'Secretary', tier: 'exco' },
+        { id: 'NSC-2627-006', name: 'Saara Unais', role: 'Assistant Secretary', tier: 'exco' },
+        { id: 'NSC-2627-007', name: 'Ketheesh Loganathan', role: 'Treasurer', tier: 'exco' },
+        { id: 'NSC-2627-008', name: 'Tajith Wickramasinghe', role: 'Assistant Treasurer', tier: 'exco' },
+        { id: 'NSC-2627-009', name: 'Thisarani Paramanathan', role: 'Educational Meeting Coordinator', tier: 'coordinators' },
+        { id: 'NSC-2627-010', name: 'Dihansa Obada Mudalige', role: 'Editor', tier: 'coordinators' },
+        { id: 'NSC-2627-011', name: 'Yasiru Gajanayake', role: 'Assistant Editor', tier: 'coordinators' },
+        { id: 'NSC-2627-012', name: 'Shyane Suthakaran', role: 'Creative Design Coordinator', tier: 'coordinators' },
+        { id: 'NSC-2627-013', name: 'Dion Stacey', role: 'Social Media Coordinator', tier: 'coordinators' },
+        { id: 'NSC-2627-014', name: 'Bhashitha Fernando', role: 'Membership Coordinator', tier: 'coordinators' },
+        { id: 'NSC-2627-015', name: 'Dihein Wickramasinghe', role: 'Event Coordinator', tier: 'coordinators' },
+        { id: 'NSC-2627-016', name: 'Sethumlee Kankanamge', role: 'PR Coordinator', tier: 'coordinators' },
+        { id: 'NSC-2627-017', name: 'Sucharika Dharmapala', role: 'Announcers Division Coordinator', tier: 'coordinators' },
+        { id: 'NSC-2627-018', name: 'Samadhi Seleena', role: 'Executive Member', tier: 'members' },
+        { id: 'NSC-2627-019', name: 'Tanuji Tenabadu', role: 'Executive Member', tier: 'members' },
+        { id: 'NSC-2627-020', name: 'Arimathungan Santhakumar', role: 'Executive Member', tier: 'members' },
+        { id: 'NSC-2627-021', name: 'Apeksha Pannegama', role: 'Executive Member', tier: 'members' },
+        { id: 'NSC-2627-022', name: 'Senadi Samarasinghe', role: 'Executive Member', tier: 'members' },
+        { id: 'NSC-2627-023', name: 'Chanupa Bandarage', role: 'Executive Member', tier: 'members' },
+        { id: 'NSC-2627-024', name: 'Sachini Bulumulla', role: 'Executive Member', tier: 'members' },
+        { id: 'NSC-2627-025', name: 'Imedha Perera', role: 'Executive Member', tier: 'members' }
+      ];
+
+      let currentIndex = 1;
+      let isFlipped = false;
+
+      const cardFrontName = document.getElementById('cardFrontName');
+      const cardFrontRole = document.getElementById('cardFrontRole');
+      const cardFrontTierLabel = document.getElementById('cardFrontTierLabel');
+      const cardBackName = document.getElementById('cardBackName');
+      const cardBackRole = document.getElementById('cardBackRole');
+      const sealTopText = document.getElementById('sealTopText');
+      const sealBotText = document.getElementById('sealBotText');
+      const sealCenterText = document.getElementById('sealCenterText');
+      const sealInnerBg = document.getElementById('sealInnerBg');
+      const crestOuterBg = document.getElementById('crestOuterBg');
+      const crestInnerBg = document.getElementById('crestInnerBg');
+      const backCrestOuterBg = document.getElementById('backCrestOuterBg');
+      const backCrestInnerBg = document.getElementById('backCrestInnerBg');
+
+      const stage = document.getElementById('cardStage');
+      const cardScaleFrame = document.getElementById('cardScaleFrame');
+      const cardWrapper = document.getElementById('cardWrapper');
+      const memberSelect = document.getElementById('memberSelect');
+      const prevMemberBtn = document.getElementById('prevMemberBtn');
+      const nextMemberBtn = document.getElementById('nextMemberBtn');
+      const flipBtn = document.getElementById('flipBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const printBtn = document.getElementById('printBtn');
+      const statusToast = document.getElementById('statusToast');
+
+      let toastTimer = null;
+      function showToast(msg) {
+        if (!statusToast) return;
+        statusToast.textContent = msg;
+        statusToast.style.opacity = '1';
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          statusToast.style.opacity = '0';
+        }, 2600);
+      }
+
+      function getActiveMember() {
+        return TOP_BOARD_ROSTER[currentIndex] || TOP_BOARD_ROSTER[1];
+      }
+
+      function setGradientStops(ids, colors) {
+        ids.forEach((id, i) => {
+          const el = document.getElementById(id);
+          if (el && colors[i]) el.setAttribute('stop-color', colors[i]);
+        });
+      }
+
+      function applyPalette(palette) {
+        const root = document.documentElement;
+        root.style.setProperty('--card-bg-start', palette.bgStart);
+        root.style.setProperty('--card-bg-mid', palette.bgMid);
+        root.style.setProperty('--card-bg-end', palette.bgEnd);
+        root.style.setProperty('--foil-dark', palette.foilDark);
+        root.style.setProperty('--foil-mid', palette.foilMid);
+        root.style.setProperty('--foil-light', palette.foilLight);
+        root.style.setProperty('--foil-sheen', palette.foilSheen);
+        root.style.setProperty('--border-glow', palette.waveStroke);
+
+        setGradientStops(['goldStop0', 'goldStop1', 'goldStop2', 'goldStop3'], [
+          palette.foilDark, palette.foilSheen, palette.foilMid, palette.foilDark
+        ]);
+        setGradientStops(['ribStop0', 'ribStop1', 'ribStop2'], [
+          palette.foilDark, palette.foilSheen, palette.foilDark
+        ]);
+        setGradientStops(['crestStop0', 'crestStop1', 'crestStop2', 'crestStop3'], [
+          palette.foilDark, palette.foilSheen, palette.foilMid, palette.foilDark
+        ]);
+        setGradientStops(['sealStop0', 'sealStop1', 'sealStop2'], [
+          palette.foilSheen, palette.foilMid, palette.foilDark
+        ]);
+
+        document.querySelectorAll('.guilloche-wave').forEach((path) => {
+          path.setAttribute('stroke', palette.waveStroke);
+        });
+
+        if (crestOuterBg) crestOuterBg.setAttribute('fill', palette.bgStart);
+        if (crestInnerBg) crestInnerBg.setAttribute('fill', palette.bgMid);
+        if (backCrestOuterBg) backCrestOuterBg.setAttribute('fill', palette.bgStart);
+        if (backCrestInnerBg) backCrestInnerBg.setAttribute('fill', palette.bgMid);
+        if (sealInnerBg) sealInnerBg.setAttribute('fill', palette.bgStart);
+
+        if (sealTopText) {
+          const tp = sealTopText.querySelector('textPath');
+          if (tp) tp.textContent = palette.sealTop;
+        }
+        if (sealBotText) {
+          const bp = sealBotText.querySelector('textPath');
+          if (bp) bp.textContent = palette.sealBot;
+        }
+        if (sealCenterText) sealCenterText.textContent = palette.sealCenter;
+      }
+
+      function populateMemberSelect() {
+        if (!memberSelect) return;
+        const groups = [
+          { keys: ['president', 'exco'], label: 'Executive Committee' },
+          { keys: ['coordinators'], label: 'Board Coordinators' },
+          { keys: ['members'], label: 'Executive Members' }
+        ];
+
+        memberSelect.innerHTML = '';
+
+        groups.forEach((grp) => {
+          const items = TOP_BOARD_ROSTER
+            .map((m, idx) => ({ ...m, idx }))
+            .filter((m) => grp.keys.includes(m.tier));
+
+          if (items.length > 0) {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = grp.label;
+            items.forEach((m) => {
+              const opt = document.createElement('option');
+              opt.value = String(m.idx);
+              opt.textContent = `${m.name} — ${m.role}`;
+              if (m.idx === currentIndex) opt.selected = true;
+              optgroup.appendChild(opt);
+            });
+            memberSelect.appendChild(optgroup);
+          }
+        });
+      }
+
+      function renderMemberCard() {
+        const member = getActiveMember();
+        const palette = TIER_PALETTES[member.tier] || TIER_PALETTES.exco;
+        const upperName = member.name.toUpperCase();
+
+        applyPalette(palette);
+
+        if (upperName.length > 23) {
+          cardFrontName.style.fontSize = '20px';
+          cardFrontName.style.letterSpacing = '0.05em';
+        } else if (upperName.length > 19) {
+          cardFrontName.style.fontSize = '22.5px';
+          cardFrontName.style.letterSpacing = '0.06em';
+        } else {
+          cardFrontName.style.fontSize = '26px';
+          cardFrontName.style.letterSpacing = '0.07em';
+        }
+
+        if (member.role.length > 34) {
+          cardFrontRole.style.fontSize = '11.5px';
+          cardFrontRole.style.letterSpacing = '0.11em';
+        } else {
+          cardFrontRole.style.fontSize = '13.5px';
+          cardFrontRole.style.letterSpacing = '0.14em';
+        }
+
+        cardFrontName.textContent = upperName;
+        cardFrontRole.textContent = member.role.toUpperCase();
+        cardFrontTierLabel.textContent = palette.pillLabel;
+
+        if (cardBackName) cardBackName.textContent = member.name;
+        if (cardBackRole) cardBackRole.textContent = member.role;
+      }
+
+      // Card Flip & 3D Tilt Physics
+      function applyTransform(rx = 0, ry = 0) {
+        const baseY = isFlipped ? 180 : 0;
+        cardWrapper.style.transform = `rotateX(${rx}deg) rotateY(${baseY + ry}deg)`;
+      }
+
+      function toggleFlip() {
+        isFlipped = !isFlipped;
+        cardWrapper.classList.remove('is-tilting');
+        applyTransform(0, 0);
+      }
+
+      cardWrapper.addEventListener('click', toggleFlip);
+      cardWrapper.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleFlip();
+        }
+      });
+
+      if (flipBtn) flipBtn.addEventListener('click', toggleFlip);
+
+      stage.addEventListener('mousemove', (e) => {
+        const rect = cardScaleFrame.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        const clampedX = Math.max(0, Math.min(1, x));
+        const clampedY = Math.max(0, Math.min(1, y));
+
+        document.documentElement.style.setProperty('--mx', `${(clampedX * 100).toFixed(1)}%`);
+        document.documentElement.style.setProperty('--my', `${(clampedY * 100).toFixed(1)}%`);
+
+        const rotateY = (clampedX - 0.5) * 14;
+        const rotateX = (0.5 - clampedY) * 12;
+        cardWrapper.classList.add('is-tilting');
+        applyTransform(rotateX, rotateY);
+      });
+
+      stage.addEventListener('mouseleave', () => {
+        cardWrapper.classList.remove('is-tilting');
+        applyTransform(0, 0);
+      });
+
+      // Roster Controls
+      if (memberSelect) {
+        memberSelect.addEventListener('change', (e) => {
+          const idx = parseInt(e.target.value, 10);
+          if (!Number.isNaN(idx)) {
+            currentIndex = idx;
+            renderMemberCard();
+          }
+        });
+      }
+
+      if (prevMemberBtn) {
+        prevMemberBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + TOP_BOARD_ROSTER.length) % TOP_BOARD_ROSTER.length;
+          if (memberSelect) memberSelect.value = String(currentIndex);
+          renderMemberCard();
+        });
+      }
+
+      if (nextMemberBtn) {
+        nextMemberBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % TOP_BOARD_ROSTER.length;
+          if (memberSelect) memberSelect.value = String(currentIndex);
+          renderMemberCard();
+        });
+      }
+
+      // Helper to load an inline SVG element as an Image for Canvas rendering
+      function svgElementToImage(svgEl) {
+        return new Promise((resolve, reject) => {
+          const cloned = svgEl.cloneNode(true);
+          cloned.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          const svgStr = new XMLSerializer().serializeToString(cloned);
+          const blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const img = new Image();
+          img.onload = () => {
+            URL.revokeObjectURL(url);
+            resolve(img);
+          };
+          img.onerror = (err) => {
+            URL.revokeObjectURL(url);
+            reject(err);
+          };
+          img.src = url;
+        });
+      }
+
+      // High-Resolution 2x PNG Export (100% faithful to Front Preview)
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', async () => {
+          const member = getActiveMember();
+          const palette = TIER_PALETTES[member.tier] || TIER_PALETTES.exco;
+
+          const canvas = document.createElement('canvas');
+          canvas.width = 1280;
+          canvas.height = 806;
+          const ctx = canvas.getContext('2d');
+
+          // Rounded CR80 Clip
+          const r = 36;
+          ctx.beginPath();
+          ctx.moveTo(r, 0);
+          ctx.lineTo(1280 - r, 0);
+          ctx.quadraticCurveTo(1280, 0, 1280, r);
+          ctx.lineTo(1280, 806 - r);
+          ctx.quadraticCurveTo(1280, 806, 1280 - r, 806);
+          ctx.lineTo(r, 806);
+          ctx.quadraticCurveTo(0, 806, 0, 806 - r);
+          ctx.lineTo(0, r);
+          ctx.quadraticCurveTo(0, 0, r, 0);
+          ctx.closePath();
+          ctx.clip();
+
+          // Metallic Card Background Gradient
+          const bgGrad = ctx.createLinearGradient(0, 0, 1280, 806);
+          bgGrad.addColorStop(0, palette.bgStart);
+          bgGrad.addColorStop(0.48, palette.bgMid);
+          bgGrad.addColorStop(1, palette.bgEnd);
+          ctx.fillStyle = bgGrad;
+          ctx.fillRect(0, 0, 1280, 806);
+
+          // Subtle Specular Radial Sheen
+          const sheenGrad = ctx.createRadialGradient(340, 180, 20, 340, 180, 620);
+          sheenGrad.addColorStop(0, 'rgba(255, 248, 220, 0.08)');
+          sheenGrad.addColorStop(1, 'rgba(255, 248, 220, 0)');
+          ctx.fillStyle = sheenGrad;
+          ctx.fillRect(0, 0, 1280, 806);
+
+          try {
+            const [decorImg, crestImg, sealImg] = await Promise.all([
+              svgElementToImage(document.getElementById('frontDecorSvg')),
+              svgElementToImage(document.getElementById('frontCrestSvg')),
+              svgElementToImage(document.getElementById('frontSealSvg'))
+            ]);
+
+            // 1. Draw full SVG background (guilloché waves, globe watermark, double frame, corner ribbons)
+            ctx.drawImage(decorImg, 0, 0, 1280, 806);
+
+            // 2. Draw Top-Left Crest (68px * 2 = 136px at x=72, y=52)
+            ctx.drawImage(crestImg, 72, 52, 136, 136);
+
+            // 3. Draw Bottom-Right Scalloped Seal (66px * 2 = 132px at x=1280-64-132=1084, y=806-52-132=622)
+            ctx.drawImage(sealImg, 1084, 622, 132, 132);
+          } catch (err) {
+            console.error('SVG layer render warning:', err);
+          }
+
+          // Foil Text Gradient
+          const foilGrad = ctx.createLinearGradient(160, 0, 1120, 806);
+          foilGrad.addColorStop(0, palette.foilMid);
+          foilGrad.addColorStop(0.28, palette.foilSheen);
+          foilGrad.addColorStop(0.52, palette.foilLight);
+          foilGrad.addColorStop(0.76, palette.foilSheen);
+          foilGrad.addColorStop(1, palette.foilMid);
+
+          // Top Header Text
+          ctx.textAlign = 'left';
+          ctx.fillStyle = foilGrad;
+          ctx.font = 'bold 40px Georgia, "Palatino Linotype", serif';
+          ctx.fillText('NSBM SPEAKERS’ CLUB', 240, 114);
+
+          ctx.fillStyle = '#f1f5f9';
+          ctx.font = '600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif';
+          ctx.fillText('MEMBERSHIP CARD   •   2026/2027', 242, 148);
+
+          // Centerpiece: Member Name, Role & Pill Badge
+          ctx.textAlign = 'center';
+          ctx.fillStyle = foilGrad;
+          const upperName = member.name.toUpperCase();
+          const nameFontSize = upperName.length > 23 ? 40 : upperName.length > 19 ? 45 : 52;
+          ctx.font = `bold ${nameFontSize}px Georgia, "Palatino Linotype", serif`;
+          ctx.fillText(upperName, 640, 392);
+
+          ctx.fillStyle = palette.foilLight;
+          const roleFontSize = member.role.length > 34 ? 23 : 27;
+          ctx.font = `bold ${roleFontSize}px -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif`;
+          ctx.fillText(member.role.toUpperCase(), 640, 444);
+
+          // Pill Container + Label
+          ctx.font = '600 21px -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif';
+          const pillText = palette.pillLabel;
+          const textMetrics = ctx.measureText(pillText);
+          const pillW = textMetrics.width + 64;
+          const pillH = 44;
+          const pillX = 640 - pillW / 2;
+          const pillY = 472;
+          const pillR = 22;
+
+          ctx.beginPath();
+          ctx.moveTo(pillX + pillR, pillY);
+          ctx.lineTo(pillX + pillW - pillR, pillY);
+          ctx.quadraticCurveTo(pillX + pillW, pillY, pillX + pillW, pillY + pillR);
+          ctx.quadraticCurveTo(pillX + pillW, pillY + pillH, pillX + pillW - pillR, pillY + pillH);
+          ctx.lineTo(pillX + pillR, pillY + pillH);
+          ctx.quadraticCurveTo(pillX, pillY + pillH, pillX, pillY + pillR);
+          ctx.quadraticCurveTo(pillX, pillY, pillX + pillR, pillY);
+          ctx.closePath();
+          ctx.fillStyle = 'rgba(10, 16, 28, 0.68)';
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = palette.waveStroke;
+          ctx.stroke();
+
+          ctx.fillStyle = '#f1f5f9';
+          ctx.fillText(pillText, 640, 501);
+
+          // Bottom-Left Ornament & Credential Text
+          ctx.strokeStyle = palette.foilLight;
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(152, 694);
+          ctx.lineTo(196, 694);
+          ctx.stroke();
+
+          ctx.textAlign = 'left';
+          ctx.fillStyle = palette.foilLight;
+          ctx.font = '600 19px Georgia, "Palatino Linotype", serif';
+          ctx.fillText('TOP BOARD CREDENTIAL', 212, 701);
+
+          ctx.fillStyle = '#e2e8f0';
+          ctx.font = '500 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif';
+          ctx.fillText('NSBM GREEN UNIVERSITY   •   TERM 2026 / 2027', 152, 732);
+
+          const link = document.createElement('a');
+          const safeFile = member.name.replace(/[^a-z0-9]+/gi, '_');
+          link.download = `NSBM_Speakers_Club_2627_${safeFile}.png`;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          showToast(`Exported PNG for ${member.name}`);
+        });
+      }
+
+      if (printBtn) {
+        printBtn.addEventListener('click', () => {
+          window.print();
+        });
+      }
+
+      function updateResponsiveCardScale() {
+        const availableWidth = Math.max(280, window.innerWidth - 32);
+        const scale = Math.min(1, availableWidth / 640);
+        cardScaleFrame.style.transform = `scale(${scale})`;
+        stage.style.height = `${Math.round(403 * scale + 24)}px`;
+      }
+
+      window.addEventListener('resize', updateResponsiveCardScale);
+
+      // Initialize Roster, Responsive Scale & Default Card (Nishith Siribaddana)
+      populateMemberSelect();
+      renderMemberCard();
+      updateResponsiveCardScale();
+    })();
+  </script>
+</body>
+</html>
