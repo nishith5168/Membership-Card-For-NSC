@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>NSBM Speakers' Club — 2026/2027 Top Board Membership Card</title>
 
   <style>
@@ -23,6 +23,14 @@
       box-sizing: border-box;
     }
 
+    /* Mobile: prevent horizontal scroll, iOS font inflation & tap flash */
+    html {
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
       margin: 0;
       padding: 16px;
@@ -37,6 +45,22 @@
       overflow-x: hidden;
       user-select: none;
       -webkit-user-select: none;
+    }
+
+    /* Mobile: dynamic viewport height + notch/safe-area support */
+    @supports (min-height: 100dvh) {
+      body {
+        min-height: 100dvh;
+      }
+    }
+
+    @supports (padding: max(0px)) {
+      body {
+        padding-top: max(16px, env(safe-area-inset-top));
+        padding-right: max(16px, env(safe-area-inset-right));
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        padding-left: max(16px, env(safe-area-inset-left));
+      }
     }
 
     .font-display {
@@ -195,6 +219,7 @@
       font-weight: 700;
       cursor: pointer;
       transition: background 0.18s ease, border-color 0.18s ease;
+      touch-action: manipulation;
     }
 
     .nav-btn:hover {
@@ -260,6 +285,7 @@
       -webkit-transform-style: preserve-3d;
       transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
       cursor: pointer;
+      touch-action: manipulation;
     }
 
     .card-wrapper.is-tilting {
@@ -663,6 +689,7 @@
       box-shadow: 0 10px 22px -6px rgba(251, 191, 36, 0.35);
       cursor: pointer;
       transition: background 0.18s ease, transform 0.15s ease;
+      touch-action: manipulation;
     }
 
     .btn-primary:hover {
@@ -683,6 +710,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: background 0.18s ease;
+      touch-action: manipulation;
     }
 
     .btn-emerald:hover {
@@ -703,6 +731,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: background 0.18s ease;
+      touch-action: manipulation;
     }
 
     .btn-slate:hover {
@@ -726,6 +755,78 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.25s ease;
+      max-width: calc(100vw - 32px);
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       MOBILE / SMALL SCREENS
+       The card itself is scaled to fit by JS; these rules tune the surrounding UI.
+       ========================================================================== */
+    @media (max-width: 700px) {
+      .stage {
+        padding: 12px 0;
+      }
+
+      .app-title {
+        font-size: 15px;
+        line-height: 1.35;
+        letter-spacing: 0.06em;
+      }
+
+      .app-top-logo {
+        width: 68px;
+        height: 68px;
+      }
+
+      .selector-bar {
+        padding: 8px;
+        gap: 6px;
+      }
+
+      .member-select {
+        min-width: 0;
+        font-size: 16px; /* prevents iOS Safari auto-zoom on focus */
+        text-overflow: ellipsis;
+      }
+
+      .nav-btn {
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .action-bar {
+        width: 100%;
+        gap: 8px;
+      }
+
+      .btn-primary,
+      .btn-emerald,
+      .btn-slate {
+        min-height: 44px;
+        justify-content: center;
+      }
+
+      .btn-primary {
+        flex: 1 1 100%;
+      }
+
+      .btn-emerald {
+        flex: 1 1 calc(50% - 8px);
+      }
+
+      .btn-slate {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .btn-emerald,
+      .btn-slate {
+        flex: 1 1 100%;
+      }
     }
 
     /* ==========================================================================
@@ -763,6 +864,7 @@
         width: auto !important;
         height: auto !important;
         transform: none !important;
+        margin: 0 !important;
       }
       .card-wrapper {
         width: auto !important;
@@ -1064,11 +1166,11 @@
             <!-- Centerpiece: Member Name, Role & Term -->
             <div class="card-center">
               <h3 id="cardFrontName" class="font-display gold-foil-text member-name">
-                NISHITH SIRIBADDANA
+                DULAKSHANA FERNANDO
               </h3>
 
               <p id="cardFrontRole" class="tier-accent-text member-role">
-                VICE PRESIDENT – EDUCATION
+                PRESIDENT
               </p>
 
               <div class="tier-accent-pill year-pill">
@@ -1161,7 +1263,7 @@
                     Official Top Board Credential
                   </p>
                   <p class="back-body-copy">
-                    This card certifies that <strong id="cardBackName" class="white-bold">Nishith Siribaddana</strong> (<span id="cardBackRole" class="tier-accent-text">Vice President – Education</span>) is an officially appointed member of the <strong class="white-bold">NSBM Speakers’ Club Top Board</strong> for the academic term <strong class="tier-accent-text">2026/2027</strong>.
+                    This card certifies that <strong id="cardBackName" class="white-bold">Dulakshana Fernando</strong> (<span id="cardBackRole" class="tier-accent-text">President</span>) is an officially appointed member of the <strong class="white-bold">NSBM Speakers’ Club Top Board</strong> for the academic term <strong class="tier-accent-text">2026/2027</strong>.
                   </p>
                 </div>
 
@@ -1188,7 +1290,7 @@
               <!-- Right-Side Official Club Crest Logo -->
               <div class="back-logo-col">
                 <div class="back-logo-box">
-                  <svg viewBox="0 0 220 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="NSBM Speakers' Club Logo">
+                  <svg id="backCrestSvg" viewBox="0 0 220 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="NSBM Speakers' Club Logo">
                     <defs>
                       <linearGradient id="backCrestGold" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#9c7822" />
@@ -1284,6 +1386,10 @@
 
     <button id="downloadBtn" type="button" class="btn-emerald">
       &#8595; Download PNG (Front)
+    </button>
+
+    <button id="downloadBackBtn" type="button" class="btn-emerald">
+      &#8595; Download PNG (Back)
     </button>
 
     <button id="printBtn" type="button" class="btn-slate">
@@ -1393,7 +1499,8 @@
         { id: 'NSC-2627-025', name: 'Imedha Perera', role: 'Executive Member', tier: 'members' }
       ];
 
-      let currentIndex = 1;
+      // The President's card (index 0) loads first
+      let currentIndex = 0;
       let isFlipped = false;
 
       const cardFrontName = document.getElementById('cardFrontName');
@@ -1418,6 +1525,7 @@
       const nextMemberBtn = document.getElementById('nextMemberBtn');
       const flipBtn = document.getElementById('flipBtn');
       const downloadBtn = document.getElementById('downloadBtn');
+      const downloadBackBtn = document.getElementById('downloadBackBtn');
       const printBtn = document.getElementById('printBtn');
       const statusToast = document.getElementById('statusToast');
 
@@ -1433,7 +1541,7 @@
       }
 
       function getActiveMember() {
-        return TOP_BOARD_ROSTER[currentIndex] || TOP_BOARD_ROSTER[1];
+        return TOP_BOARD_ROSTER[currentIndex] || TOP_BOARD_ROSTER[0];
       }
 
       function setGradientStops(ids, colors) {
@@ -1574,7 +1682,12 @@
 
       if (flipBtn) flipBtn.addEventListener('click', toggleFlip);
 
+      // Hover tilt is for mouse pointers only (touch devices fire synthetic mouse events on tap)
+      const canHoverTilt = () =>
+        !(window.matchMedia && window.matchMedia('(hover: none)').matches);
+
       stage.addEventListener('mousemove', (e) => {
+        if (!canHoverTilt()) return;
         const rect = cardScaleFrame.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width;
         const y = (e.clientY - rect.top) / rect.height;
@@ -1788,22 +1901,311 @@
         });
       }
 
+      // ---------- High-Resolution 2x PNG Export of the card BACK ----------
+      function roundRectPath(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+      }
+
+      // Layout position of an element inside a root, unaffected by CSS transforms/3D flip
+      function offsetRect(el, root) {
+        let x = 0, y = 0, n = el;
+        while (n && n !== root) {
+          x += n.offsetLeft;
+          y += n.offsetTop;
+          n = n.offsetParent;
+        }
+        return { x, y, w: el.offsetWidth, h: el.offsetHeight };
+      }
+
+      if (downloadBackBtn) {
+        downloadBackBtn.addEventListener('click', async () => {
+          const S = 2;
+          const W = 1280;
+          const H = 806;
+          const member = getActiveMember();
+          const palette = TIER_PALETTES[member.tier] || TIER_PALETTES.exco;
+          const backFace = document.querySelector('.card-back');
+          const q = (sel) => backFace.querySelector(sel);
+          const R = (el) => {
+            const r = offsetRect(el, backFace);
+            return { x: r.x * S, y: r.y * S, w: r.w * S, h: r.h * S };
+          };
+
+          const DISPLAY_FONT = 'Georgia, "Palatino Linotype", serif';
+          const BODY_FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif';
+
+          const canvas = document.createElement('canvas');
+          canvas.width = W;
+          canvas.height = H;
+          const ctx = canvas.getContext('2d');
+
+          // Letter-spaced text helper (manual, for broad browser support)
+          function drawSpaced(text, x, y, spacing, align) {
+            const chars = Array.from(text);
+            let total = 0;
+            chars.forEach((c) => { total += ctx.measureText(c).width + spacing; });
+            let cx = align === 'right' ? x - total : align === 'center' ? x - total / 2 : x;
+            ctx.textAlign = 'left';
+            chars.forEach((c) => {
+              ctx.fillText(c, cx, y);
+              cx += ctx.measureText(c).width + spacing;
+            });
+          }
+
+          // Rounded CR80 Clip
+          roundRectPath(ctx, 0, 0, W, H, 36);
+          ctx.clip();
+
+          // Metallic Card Background Gradient
+          const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+          bgGrad.addColorStop(0, palette.bgStart);
+          bgGrad.addColorStop(0.48, palette.bgMid);
+          bgGrad.addColorStop(1, palette.bgEnd);
+          ctx.fillStyle = bgGrad;
+          ctx.fillRect(0, 0, W, H);
+
+          // Subtle Specular Radial Sheen
+          const sheenGrad = ctx.createRadialGradient(340, 180, 20, 340, 180, 620);
+          sheenGrad.addColorStop(0, 'rgba(255, 248, 220, 0.08)');
+          sheenGrad.addColorStop(1, 'rgba(255, 248, 220, 0)');
+          ctx.fillStyle = sheenGrad;
+          ctx.fillRect(0, 0, W, H);
+
+          // Double Gold Border (same 856x540 coordinate space as the on-screen SVG)
+          ctx.save();
+          ctx.scale(W / 856, H / 540);
+          const borderGrad = (x, y, w, h) => {
+            const g = ctx.createLinearGradient(x, y, x + w, y + h);
+            g.addColorStop(0, palette.foilDark);
+            g.addColorStop(0.32, palette.foilSheen);
+            g.addColorStop(0.65, palette.foilMid);
+            g.addColorStop(1, palette.foilDark);
+            return g;
+          };
+          roundRectPath(ctx, 18, 18, 820, 504, 12);
+          ctx.strokeStyle = borderGrad(18, 18, 820, 504);
+          ctx.lineWidth = 2.2;
+          ctx.globalAlpha = 0.8;
+          ctx.stroke();
+          roundRectPath(ctx, 26, 26, 804, 488, 8);
+          ctx.strokeStyle = borderGrad(26, 26, 804, 488);
+          ctx.lineWidth = 1;
+          ctx.globalAlpha = 0.4;
+          ctx.stroke();
+          ctx.restore();
+          ctx.globalAlpha = 1;
+
+          ctx.textBaseline = 'middle';
+
+          // Magnetic Stripe
+          const stripe = R(q('.mag-stripe'));
+          const stripeGrad = ctx.createLinearGradient(0, 0, W, 0);
+          stripeGrad.addColorStop(0, '#09090b');
+          stripeGrad.addColorStop(0.5, '#27272a');
+          stripeGrad.addColorStop(1, '#09090b');
+          ctx.fillStyle = stripeGrad;
+          ctx.fillRect(0, stripe.y, W, stripe.h);
+          ctx.fillStyle = 'rgba(243, 213, 122, 0.35)';
+          ctx.fillRect(0, stripe.y, W, S);
+          ctx.fillRect(0, stripe.y + stripe.h - S, W, S);
+
+          const magLeft = R(q('.mag-left'));
+          ctx.fillStyle = palette.foilLight;
+          ctx.font = `${10.5 * S}px ${DISPLAY_FONT}`;
+          drawSpaced('NSBM SPEAKERS’ CLUB', magLeft.x, magLeft.y + magLeft.h / 2, 0.22 * 10.5 * S, 'left');
+
+          const magRight = R(q('.mag-right'));
+          ctx.fillStyle = '#e2e8f0';
+          ctx.font = `${10 * S}px ${DISPLAY_FONT}`;
+          drawSpaced('2026 / 2027 TERM', magRight.x + magRight.w, magRight.y + magRight.h / 2, 0.18 * 10 * S, 'right');
+
+          // Heading
+          const heading = R(q('#cardBackHeading'));
+          ctx.fillStyle = palette.foilLight;
+          ctx.font = `700 ${10 * S}px ${BODY_FONT}`;
+          drawSpaced('OFFICIAL TOP BOARD CREDENTIAL', heading.x, heading.y + heading.h / 2, 0.2 * 10 * S, 'left');
+
+          // Body copy with mixed styles, word-wrapped to the on-screen column width
+          const body = R(q('.back-body-copy'));
+          const bodySize = 11.5 * S;
+          const lineH = bodySize * 1.55;
+          const runs = [
+            { t: 'This card certifies that ', w: 400, c: '#f1f5f9' },
+            { t: member.name, w: 700, c: '#ffffff' },
+            { t: ' (', w: 400, c: '#f1f5f9' },
+            { t: member.role, w: 400, c: palette.foilLight },
+            { t: ') is an officially appointed member of the ', w: 400, c: '#f1f5f9' },
+            { t: 'NSBM Speakers’ Club Top Board', w: 700, c: '#ffffff' },
+            { t: ' for the academic term ', w: 400, c: '#f1f5f9' },
+            { t: '2026/2027', w: 700, c: palette.foilLight },
+            { t: '.', w: 400, c: '#f1f5f9' }
+          ];
+          const setRunFont = (run) => { ctx.font = `${run.w} ${bodySize}px ${BODY_FONT}`; };
+
+          // Build words (non-space pieces stay together across style boundaries) and spaces
+          const tokens = [];
+          let curWord = [];
+          const flushWord = () => {
+            if (curWord.length) { tokens.push({ type: 'word', pieces: curWord }); curWord = []; }
+          };
+          runs.forEach((run) => {
+            run.t.split(/(\s+)/).forEach((part) => {
+              if (!part) return;
+              if (/^\s+$/.test(part)) {
+                flushWord();
+                tokens.push({ type: 'space', pieces: [{ t: ' ', run }] });
+              } else {
+                curWord.push({ t: part, run });
+              }
+            });
+          });
+          flushWord();
+
+          const measureToken = (tok) => {
+            let w = 0;
+            tok.pieces.forEach((p) => { setRunFont(p.run); w += ctx.measureText(p.t).width; });
+            return w;
+          };
+
+          const lines = [[]];
+          let lineW = 0;
+          tokens.forEach((tok) => {
+            const tw = measureToken(tok);
+            const line = lines[lines.length - 1];
+            if (tok.type === 'space') {
+              if (line.length === 0) return;
+              line.push({ tok, w: tw });
+              lineW += tw;
+            } else if (lineW + tw > body.w && line.length > 0) {
+              lines.push([{ tok, w: tw }]);
+              lineW = tw;
+            } else {
+              line.push({ tok, w: tw });
+              lineW += tw;
+            }
+          });
+
+          ctx.textAlign = 'left';
+          lines.forEach((line, i) => {
+            let x = body.x;
+            const y = body.y + (i + 0.5) * lineH;
+            line.forEach((item) => {
+              item.tok.pieces.forEach((p) => {
+                setRunFont(p.run);
+                ctx.fillStyle = p.run.c;
+                ctx.fillText(p.t, x, y);
+                x += ctx.measureText(p.t).width;
+              });
+            });
+          });
+
+          // Signature strip
+          const sig = R(q('.sig-box'));
+          roundRectPath(ctx, sig.x, sig.y, sig.w, sig.h, 5 * S);
+          ctx.fillStyle = '#f8fafc';
+          ctx.fill();
+          ctx.lineWidth = S;
+          ctx.strokeStyle = 'rgba(243, 213, 122, 0.7)';
+          ctx.stroke();
+          ctx.globalAlpha = 0.55;
+          ctx.fillStyle = '#64748b';
+          ctx.font = `${12 * S}px ${DISPLAY_FONT}`;
+          ctx.textAlign = 'left';
+          ctx.fillText('×', sig.x + 12 * S, sig.y + sig.h / 2);
+          ctx.globalAlpha = 1;
+
+          const sigCap = R(q('.sig-caption'));
+          ctx.fillStyle = '#cbd5e1';
+          ctx.font = `${8.5 * S}px ${BODY_FONT}`;
+          drawSpaced('AUTHORIZED BEARER SIGNATURE (SIGN IN INK)', sigCap.x, sigCap.y + sigCap.h / 2, 0.16 * 8.5 * S, 'left');
+
+          // Holographic foil badge
+          const holo = R(q('.holo-wrap'));
+          const holoGrad = ctx.createLinearGradient(holo.x, holo.y, holo.x + holo.w, holo.y + holo.h);
+          ['#d6a843', '#67e8f9', '#f7e6b2', '#a78bfa', '#c9a23f'].forEach((c, i) => holoGrad.addColorStop(i / 4, c));
+          roundRectPath(ctx, holo.x, holo.y, holo.w, holo.h, 6 * S);
+          ctx.fillStyle = holoGrad;
+          ctx.fill();
+          const holoIn = R(q('.holo-inner'));
+          roundRectPath(ctx, holoIn.x, holoIn.y, holoIn.w, holoIn.h, 4.5 * S);
+          ctx.fillStyle = '#0f172a';
+          ctx.fill();
+          ctx.fillStyle = palette.foilLight;
+          ctx.font = `700 ${9.5 * S}px ${DISPLAY_FONT}`;
+          drawSpaced('NSC', holoIn.x + holoIn.w / 2, holoIn.y + holoIn.h / 2, 0.08 * 9.5 * S, 'center');
+
+          // Crest logo
+          try {
+            const logoBox = R(q('.back-logo-box'));
+            const logoImg = await svgElementToImage(document.getElementById('backCrestSvg'));
+            ctx.drawImage(logoImg, logoBox.x, logoBox.y, logoBox.w, logoBox.h);
+          } catch (err) {
+            console.error('Back crest render warning:', err);
+          }
+
+          // Footer
+          const footer = R(q('.back-footer'));
+          ctx.fillStyle = 'rgba(243, 213, 122, 0.24)';
+          ctx.fillRect(footer.x, footer.y, footer.w, S);
+
+          const footL = R(q('.back-footer-left'));
+          const footGrad = ctx.createLinearGradient(footL.x, 0, footL.x + footL.w, 0);
+          footGrad.addColorStop(0, palette.foilMid);
+          footGrad.addColorStop(0.28, palette.foilSheen);
+          footGrad.addColorStop(0.52, palette.foilLight);
+          footGrad.addColorStop(0.76, palette.foilSheen);
+          footGrad.addColorStop(1, palette.foilMid);
+          ctx.fillStyle = footGrad;
+          ctx.font = `700 ${9.5 * S}px ${BODY_FONT}`;
+          drawSpaced('NSBM SPEAKERS’ CLUB', footL.x, footL.y + footL.h / 2, 0.12 * 9.5 * S, 'left');
+
+          const footR = R(q('.back-footer-right'));
+          ctx.fillStyle = '#e2e8f0';
+          ctx.font = `500 ${9.5 * S}px ${BODY_FONT}`;
+          ctx.textAlign = 'right';
+          ctx.fillText('NSBM Green University, Homagama', footR.x + footR.w, footR.y + footR.h / 2);
+
+          const link = document.createElement('a');
+          const safeFile = member.name.replace(/[^a-z0-9]+/gi, '_');
+          link.download = `NSBM_Speakers_Club_2627_${safeFile}_Back.png`;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          showToast(`Exported back PNG for ${member.name}`);
+        });
+      }
+
       if (printBtn) {
         printBtn.addEventListener('click', () => {
           window.print();
         });
       }
 
+      // Scales the fixed 640x403 card to fit any screen width. Negative side margins
+      // make the card's layout footprint match its scaled size (no horizontal overflow).
       function updateResponsiveCardScale() {
-        const availableWidth = Math.max(280, window.innerWidth - 32);
+        const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+        const availableWidth = Math.max(280, viewportWidth - 32);
         const scale = Math.min(1, availableWidth / 640);
+        const sideMargin = -Math.round((640 * (1 - scale)) / 2);
+
         cardScaleFrame.style.transform = `scale(${scale})`;
+        cardScaleFrame.style.marginLeft = `${sideMargin}px`;
+        cardScaleFrame.style.marginRight = `${sideMargin}px`;
         stage.style.height = `${Math.round(403 * scale + 24)}px`;
       }
 
       window.addEventListener('resize', updateResponsiveCardScale);
+      window.addEventListener('orientationchange', () => {
+        setTimeout(updateResponsiveCardScale, 150);
+      });
 
-      // Initialize Roster, Responsive Scale & Default Card (Nishith Siribaddana)
+      // Initialize Roster, Responsive Scale & Default Card (President — Dulakshana Fernando)
       populateMemberSelect();
       renderMemberCard();
       updateResponsiveCardScale();
