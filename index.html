@@ -674,68 +674,58 @@
       padding: 0 16px;
     }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 18px;
-      border-radius: 12px;
-      border: none;
-      background: #fbbf24;
-      color: #090d16;
-      font-family: inherit;
-      font-size: 12.5px;
-      font-weight: 700;
-      box-shadow: 0 10px 22px -6px rgba(251, 191, 36, 0.35);
-      cursor: pointer;
-      transition: background 0.18s ease, transform 0.15s ease;
-      touch-action: manipulation;
-    }
-
-    .btn-primary:hover {
-      background: #fcd34d;
-    }
-
-    .btn-emerald {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      background: rgba(6, 78, 59, 0.78);
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      color: #a7f3d0;
-      font-family: inherit;
-      font-size: 12.5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.18s ease;
-      touch-action: manipulation;
-    }
-
-    .btn-emerald:hover {
-      background: rgba(6, 95, 70, 0.88);
-    }
-
+    /* Shared button base: one consistent, restrained style across all actions */
+    .btn-primary,
+    .btn-emerald,
     .btn-slate {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(71, 85, 105, 0.75);
-      color: #e2e8f0;
+      justify-content: center;
+      padding: 11px 22px;
+      border-radius: 6px;
       font-family: inherit;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
       cursor: pointer;
-      transition: background 0.18s ease;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
       touch-action: manipulation;
     }
 
+    .btn-primary:focus-visible,
+    .btn-emerald:focus-visible,
+    .btn-slate:focus-visible {
+      outline: 2px solid var(--foil-light);
+      outline-offset: 2px;
+    }
+
+    /* Primary: solid gold */
+    .btn-primary {
+      border: 1px solid var(--foil-mid);
+      background: var(--foil-mid);
+      color: #0b0f17;
+    }
+
+    .btn-primary:hover {
+      background: var(--foil-light);
+      border-color: var(--foil-light);
+    }
+
+    /* Secondary: quiet outline */
+    .btn-emerald,
+    .btn-slate {
+      border: 1px solid rgba(214, 174, 72, 0.45);
+      background: transparent;
+      color: #e8e4d6;
+    }
+
+    .btn-emerald:hover,
     .btn-slate:hover {
-      background: #1e293b;
+      border-color: var(--foil-light);
+      background: rgba(214, 174, 72, 0.1);
+      color: #ffffff;
     }
 
     .status-toast {
@@ -1381,19 +1371,19 @@
   <!-- Interactive Action Footer -->
   <footer class="action-bar no-print">
     <button id="flipBtn" type="button" class="btn-primary">
-      &#8635; Flip Card
+      Flip Card
     </button>
 
     <button id="downloadBtn" type="button" class="btn-emerald">
-      &#8595; Download PNG (Front)
+      Download PNG (Front)
     </button>
 
     <button id="downloadBackBtn" type="button" class="btn-emerald">
-      &#8595; Download PNG (Back)
+      Download PNG (Back)
     </button>
 
     <button id="printBtn" type="button" class="btn-slate">
-      &#128424; Print CR80 Card
+      Print CR80 Card
     </button>
   </footer>
 
